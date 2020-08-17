@@ -4,8 +4,8 @@ const REST = 0x7F;
 function encode(num, outIn) {
     const out = outIn || [];
     while(num > REST) {
-        out.push((num & 0xFF) | MSB);
-        num >>>= 7
+        out.push((num & REST) | MSB);
+        num >>>= 7;
     }
     out.push(num);
     return out;
